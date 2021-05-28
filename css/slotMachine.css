@@ -1,3 +1,152 @@
 body {
-    background-color: brown;
+    font-family: 'Poppins', sans-serif;
+    color: white;
 }
+
+main {
+    background: #212845; 
+    height: 99vh;
+    width: 99vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainBlock {
+    background: lightsalmon; /* Change if needed to later, but check */
+    min-height: 600px; /* Change if needed to later, but check */
+    min-width: 600px; /* Change if needed to later, but check */
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background:  turquoise;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+#slotMachine {
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+#mania {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 50px;
+}
+
+#displayValue {
+    background-color: tan;
+    height: auto;
+    width: 100%;
+    margin: 20px 0 0 0;
+    display: flex;
+}
+
+.valueBlock {
+    background: thistle;
+    width: 50%;
+    height: 100%;
+    display: flex; /*Testing*/
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#inputText {
+    background: violet;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    font-size: 40px;
+}
+
+input {
+    border: none;
+    background: transparent;
+    height: 100%;
+    max-width: 100px;
+    font-size: 40px;
+}
+
+#inputButton {
+    background: #A0DE83;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 110%;
+    width: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+
+.lineBreaker {
+    background: white;
+    width: 1px;
+    height: 100px;
+}
+
+#totalValue {
+    font-size: 40px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+}
+
+#spinnerBlock {
+    background: wheat;
+    height: 100px;
+    width: 100%;
+    margin: 30px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.spinner {
+    background: #ACB5DA;
+    height: 100%;
+    width: 60px;
+    border-radius: 100px;
+    margin: 0 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background: #333F5F;
+    width: 400px;
+    height: 60px;
+    border: none;
+    border-radius: 100px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin: 30px 0 0 0;
+}
+
