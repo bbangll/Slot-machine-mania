@@ -6,7 +6,7 @@
     <title>repl.it</title>
     <link rel="stylesheet" type="text/css" href="css/slotMachine.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -19,36 +19,36 @@
 
         <div id="displayValue">
           <div class="valueBlock">
-            <label for="valueInput">Add in your value</label>
+            <label for="valueInput">Place your bet</label>
             <div id="inputText">
               <p>$</p>
               <input type="text" placeholder="50.0000">
               <button id="inputButton">
-                <img src="play.svg" />
+                <img src="file:///Users/bbangdurrani/Downloads/play%201.svg" />
               </button>
             </div>
           </div>
           <div class="lineBreaker"></div>
           <div class="valueBlock">
-            <label for="valueInput">Add in your value</label>
+            <label for="valueInput">Your Total</label>
             <h2 id="totalValue">$50.00</h2>
           </div>
         </div>
 
         <div id="spinnerBlock">
           <div class="spinner">
-            <label id="moneyValue">100</label>
+            <label class="spinnerText" id="moneyValue">100</label>
           </div>
           <div class="spinner">
-            <label id="multiplierValue">x3</label>
+            <label class="spinnerText" id="multiplierValue">x3</label>
           </div>
           <div class="spinner">
-            <label id="decider">Won</label>
+            <label class="spinnerText" id="decider">Won</label>
           </div>
-          <div class="spinner" id="Spin">Spin</div>
+          <div class="spinner" id="spin">Spin</div>
         </div>
 
-        <button>Cash Out</button>
+        <button id="cashOut">Cash Out</button>
 
       </div>
     </main>
