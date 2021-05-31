@@ -41,13 +41,11 @@ function winLoseSlotOp() {
 
 function currentTotalOp() {
     if (selWinLoseSlot === 'Won') {
-        console.log('currentTotal: ' + currentTotal); // Checking current total
-        console.log('valueSlot: ' + selValueSlot); // Checking whats the value
-        console.log('multiplierSlot: ' + selMultiplierSlot); // Checking whats the multiplier
         let value = (selValueSlot * selMultiplierSlot) + currentTotal; // Checking if it's adding and multiplying the correct amount
         return currentTotal = value;
     } else if (selWinLoseSlot === 'Lost') {
-        console.log("I Lost")
+        let value = currentTotal - (selValueSlot * selMultiplierSlot); // Checking if it's adding and multiplying the correct amount
+        return currentTotal = value;
     };
 }
 
