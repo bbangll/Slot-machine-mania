@@ -5,8 +5,8 @@ body {
 
 main {
     background: #212845; 
-    height: 100vh;
-    width: 100vw;
+    height: 96vh;
+    width: 99vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -79,7 +79,7 @@ label {
 
 p {
     font-size: 40px;
-    opacity: 30%;
+    opacity: 20%;
 }
 
 input {
@@ -88,12 +88,13 @@ input {
     height: 100%;
     max-width: 105px;
     font-size: 40px;
+    color: white;
 }
 
 ::placeholder {
     font-family: 'Poppins', sans-serif;
     font-size: 40px;
-    opacity: 30%;
+    opacity: 20%;
     color: white;
     font-weight: 300;
 }
@@ -123,7 +124,7 @@ img {
     opacity: 10%;
 }
 
-#totalValue {
+#totalTxt {
     font-size: 40px;
     font-weight: 600;
     margin: 0;
