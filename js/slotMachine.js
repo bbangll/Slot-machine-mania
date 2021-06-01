@@ -52,6 +52,7 @@ function currentTotalOp() {
 
 
 /*----- event listeners -----*/
+
 selValueSlot = valueSlotOp();
 selMultiplierSlot = multiplierSlotOp();
 selWinLoseSlot = winLoseSlotOp();
