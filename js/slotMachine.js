@@ -5,7 +5,7 @@ const winLoseSlot = ['Won', 'Lost']; // Whether the money gets added on or subtr
 
 /*----- app's state (variables) -----*/
 
-let currentTotal = 100;
+let currentTotal = 100; // 100 is just to test
 let selValueSlot;
 let selMultiplierSlot;
 let selWinLoseSlot;
@@ -16,10 +16,24 @@ let totalTxt = document.querySelector('#totalTxt');
 let valueTxt = document.querySelector('#valueTxt');
 let multiplierTxt = document.querySelector('#multiplierTxt');
 let winLoseTxt = document.querySelector('#winLoseTxt');
+let inputValue = document.querySelector('input');
+let inputButton = document.querySelector('#inputButton')
 let spinButton = document.querySelector('#spin');
 let cashOutButton = document.querySelector('#cashOut');
 
 /*----- functions -----*/
+
+function init() {
+    currentTotal = 100; // 100 is just to test
+    selValueSlot = 0 // Testing
+    selMultiplierSlot = 0 // Testing
+    selWinLoseSlot = ''; // Testing
+}
+
+function userInput() { // When the user adds in an input and click the submit button, this function should update the value of currentValue
+    let total = inputValue.value;
+    return total
+}
 
 function valueSlotOp() {
     let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number from the array
@@ -49,13 +63,34 @@ function currentTotalOp() {
     };
 }
 
+function txtChange() {
+    totalTxt.innerText = '$' + currentTotal + '.00';
+    valueTxt.innerText = '$' + selValueSlot;
+    multiplierTxt.innerText = 'x' + selMultiplierSlot;
+    winLoseTxt.innerText = selWinLoseSlot;
+}
+
+function spinIt() {
+    valueSlotOp();
+    multiplierSlotOp();
+    winLoseSlotOp();
+    console.log(valueSlotOp())
+}
+
 
 
 /*----- event listeners -----*/
+spinIt();
+currentTotal = userInput();
 
-selValueSlot = valueSlotOp();
+/*selValueSlot = valueSlotOp();
 selMultiplierSlot = multiplierSlotOp();
 selWinLoseSlot = winLoseSlotOp();
 winLoseSlotOp();
 currentTotalOp();
 console.log(currentTotal);
+txtChange();*/
+
+inputButton.addEventListener('click', userInput);
+spinButton.addEventListener('click', spinIt)
+
