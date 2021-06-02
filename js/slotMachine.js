@@ -29,39 +29,45 @@ function init() {
     selValueSlot = 0;
     selMultiplierSlot = 0;
     selWinLoseSlot = 'Won'; 
+    render();
 }
 
 function userInput() { // When the user adds in an input and click the submit button, this function should update the value of currentValue
     let total = inputValue.value;
-    currentTotal = total;
+    currentTotal = total; // Should + currentValue but it would add another 0;
     render();
     return currentTotal;
 }
 
 function valueSlotOp() {
     let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number from the array
-    selValueSlot = value;
+    selValueSlot = value
+    render();
     return selValueSlot;
 }
 
 function multiplierSlotOp() {
     let value = multiplierSlot[Math.floor(Math.random() * multiplierSlot.length)]; // finds a random multiplier from the array
     selMultiplierSlot = value;
+    render();
     return selMultiplierSlot;
 }
 
 function winLoseSlotOp() {
     let value = winLoseSlot[Math.floor(Math.random() * winLoseSlot.length)]; // randomly finds if they win or lose the money
     let selWinLoseSlot = value;
+    render();
     return selWinLoseSlot;
 }
 
 function currentTotalOp() {
     if (selWinLoseSlot === 'Won') {
         let value = (selValueSlot * selMultiplierSlot) + currentTotal; // Checking if it's adding and multiplying the correct amount
+        render();
         return currentTotal = value;
     } else if (selWinLoseSlot === 'Lost') {
         let value = currentTotal - (selValueSlot * selMultiplierSlot); // Checking if it's adding and multiplying the correct amount
+        render();
         return currentTotal = value;
     };
 }
@@ -84,8 +90,6 @@ function spinner() { // focused here render and init
     currentTotalOp()
     currentTotal = currentTotalOp();
     console.log('total: ' + currentTotal);
-
-    render();
 }
 
 
@@ -106,10 +110,8 @@ init();
 
 inputButton.addEventListener('click', userInput);
 console.log(currentTotal)
-render();
 spinButton.addEventListener('click', spinner);
 cashOutButton.addEventListener('click', init);
-render();
 
 console.log(currentTotal)
 
