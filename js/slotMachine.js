@@ -33,6 +33,8 @@ function init() {
 
 function userInput() { // When the user adds in an input and click the submit button, this function should update the value of currentValue
     let total = inputValue.value;
+    currentTotal = total;
+    render();
     return currentTotal;
 }
 
@@ -103,7 +105,13 @@ function render() {
 init();
 
 inputButton.addEventListener('click', userInput);
-spinButton.addEventListener('click', spinner);
+console.log(currentTotal)
 render();
-console.log(currentTotalOp());
+spinButton.addEventListener('click', spinner);
+cashOutButton.addEventListener('click', init);
+render();
+
+console.log(currentTotal)
+
+
 
