@@ -1,3 +1,4 @@
+
 /*----- constants -----*/
 const valueSlot = [20, 40, 60, 80, 100, 120, 140, 160, 180, 200]; 
 const multiplierSlot = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // How much the value gets multiplied by
@@ -5,10 +6,10 @@ const winLoseSlot = ['Won', 'Lost']; // Whether the money gets added on or subtr
 
 /*----- app's state (variables) -----*/
 
-let currentTotal = 100; // 100 is just to test
-let selValueSlot;
-let selMultiplierSlot;
-let selWinLoseSlot;
+let currentTotal = 0;
+let selValueSlot = 0;
+let selMultiplierSlot = 0;
+let selWinLoseSlot = '';
 
 /*----- cached element references -----*/
 
@@ -24,15 +25,15 @@ let cashOutButton = document.querySelector('#cashOut');
 /*----- functions -----*/
 
 function init() {
-    currentTotal = 100; // 100 is just to test
-    selValueSlot = 0 // Testing
-    selMultiplierSlot = 0 // Testing
-    selWinLoseSlot = ''; // Testing
+    currentTotal = 0;
+    selValueSlot = 0;
+    selMultiplierSlot = 0;
+    selWinLoseSlot = 'Won'; 
 }
 
 function userInput() { // When the user adds in an input and click the submit button, this function should update the value of currentValue
     let total = inputValue.value;
-    return total
+    return currentTotal;
 }
 
 function valueSlotOp() {
@@ -63,34 +64,46 @@ function currentTotalOp() {
     };
 }
 
-function txtChange() {
+
+
+
+
+function spinner() { // focused here render and init
+    valueSlotOp();
+    selValueSlot = valueSlotOp();
+    console.log('value: ' + selValueSlot);
+    multiplierSlotOp();
+    selMultiplierSlot = multiplierSlotOp();
+    console.log('multiplier: ' + selMultiplierSlot);
+    winLoseSlotOp();
+    selWinLoseSlot = winLoseSlotOp();
+    console.log('winLose: ' + selWinLoseSlot);
+    console.log('totalbefore: ' + currentTotal);
+    currentTotalOp()
+    currentTotal = currentTotalOp();
+    console.log('total: ' + currentTotal);
+
+    render();
+}
+
+
+function render() {
     totalTxt.innerText = '$' + currentTotal + '.00';
     valueTxt.innerText = '$' + selValueSlot;
     multiplierTxt.innerText = 'x' + selMultiplierSlot;
     winLoseTxt.innerText = selWinLoseSlot;
 }
 
-function spinIt() {
-    valueSlotOp();
-    multiplierSlotOp();
-    winLoseSlotOp();
-    console.log(valueSlotOp())
-}
-
-
+// init is just initialising
+// render is just doing the logic and displaying what needs to changed
 
 /*----- event listeners -----*/
-spinIt();
-currentTotal = userInput();
 
-/*selValueSlot = valueSlotOp();
-selMultiplierSlot = multiplierSlotOp();
-selWinLoseSlot = winLoseSlotOp();
-winLoseSlotOp();
-currentTotalOp();
-console.log(currentTotal);
-txtChange();*/
+
+init();
 
 inputButton.addEventListener('click', userInput);
-spinButton.addEventListener('click', spinIt)
+spinButton.addEventListener('click', spinner);
+render();
+console.log(currentTotalOp());
 
