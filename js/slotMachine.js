@@ -35,8 +35,7 @@ function init() {
 function userInput() { // When the user adds in an input and click the submit button, this function should update the value of currentValue
     let total = inputValue.value;
     total = parseInt(total);
-    console.log(typeof total);
-    currentTotal = total + currentTotal;
+    currentTotal = total + currentTotal
     render();
     return currentTotal;
 }
@@ -44,35 +43,31 @@ function userInput() { // When the user adds in an input and click the submit bu
 
 function valueSlotOp() {
     let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number from the array
-    selValueSlot = value
-    render();
-    return selValueSlot;
+    return value;
 }
 
 function multiplierSlotOp() {
     let value = multiplierSlot[Math.floor(Math.random() * multiplierSlot.length)]; // finds a random multiplier from the array
-    selMultiplierSlot = value;
-    render();
-    return selMultiplierSlot;
+    return value;
 }
 
 function winLoseSlotOp() {
     let value = winLoseSlot[Math.floor(Math.random() * winLoseSlot.length)]; // randomly finds if they win or lose the money
-    let selWinLoseSlot = value;
-    render();
-    return selWinLoseSlot; // But doesnt return the value, it stays as return
+    return value; // But doesnt return the value, it stays as return
 }
 
 
 function currentTotalOp() {
     if (selWinLoseSlot === 'Won') {
+        console.log(selValueSlot, selMultiplierSlot, selWinLoseSlot, currentTotal);
         let value = (selValueSlot * selMultiplierSlot) + currentTotal; // Checking if it's adding and multiplying the correct amount
-        render();
-        return currentTotal = value;
+        
+        return value;
     } else if (selWinLoseSlot === 'Lost') {
+        console.log(selValueSlot, selMultiplierSlot, selWinLoseSlot, currentTotal);
         let value = currentTotal - (selValueSlot * selMultiplierSlot); // Checking if it's adding and multiplying the correct amount
-        render();
-        return currentTotal = value;
+        
+        return value;
     };
 }
 
@@ -81,17 +76,13 @@ function currentTotalOp() {
 
 
 function spinner() { // focused here render and init
-    valueSlotOp();
     selValueSlot = valueSlotOp();
     console.log('value: ' + selValueSlot);
-    multiplierSlotOp();
     selMultiplierSlot = multiplierSlotOp();
     console.log('multiplier: ' + selMultiplierSlot);
-    winLoseSlotOp();
     selWinLoseSlot = winLoseSlotOp();
     console.log('winLose: ' + selWinLoseSlot);
     console.log('totalbefore: ' + currentTotal);
-    currentTotalOp()
     currentTotal = currentTotalOp();
     console.log('total: ' + currentTotal);
     render();
