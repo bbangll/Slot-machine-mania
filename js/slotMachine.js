@@ -1,6 +1,6 @@
 
 /*----- constants -----*/
-const valueSlot = [20, 40, 60, 80, 100, 120, 140, 160, 180, 200]; 
+const valueSlot = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; 
 const multiplierSlot = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // How much the value gets multiplied by
 const winLoseSlot = ['Won', 'Lost']; // Whether the money gets added on or subtracted from the current total
 
@@ -9,7 +9,7 @@ const winLoseSlot = ['Won', 'Lost']; // Whether the money gets added on or subtr
 let currentTotal = 0;
 let selValueSlot = 0;
 let selMultiplierSlot = 0;
-let selWinLoseSlot = '';
+let selWinLoseSlot = 'Won';
 
 /*----- cached element references -----*/
 
@@ -34,10 +34,13 @@ function init() {
 
 function userInput() { // When the user adds in an input and click the submit button, this function should update the value of currentValue
     let total = inputValue.value;
-    currentTotal = total; // Should + currentValue but it would add another 0;
+    total = parseInt(total);
+    console.log(typeof total);
+    currentTotal = total + currentTotal;
     render();
     return currentTotal;
 }
+
 
 function valueSlotOp() {
     let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number from the array
@@ -57,8 +60,9 @@ function winLoseSlotOp() {
     let value = winLoseSlot[Math.floor(Math.random() * winLoseSlot.length)]; // randomly finds if they win or lose the money
     let selWinLoseSlot = value;
     render();
-    return selWinLoseSlot;
+    return selWinLoseSlot; // But doesnt return the value, it stays as return
 }
+
 
 function currentTotalOp() {
     if (selWinLoseSlot === 'Won') {
@@ -90,6 +94,7 @@ function spinner() { // focused here render and init
     currentTotalOp()
     currentTotal = currentTotalOp();
     console.log('total: ' + currentTotal);
+    render();
 }
 
 
@@ -109,11 +114,8 @@ function render() {
 init();
 
 inputButton.addEventListener('click', userInput);
-console.log(currentTotal)
 spinButton.addEventListener('click', spinner);
 cashOutButton.addEventListener('click', init);
-
-console.log(currentTotal)
 
 
 
