@@ -15,6 +15,7 @@ let cashoutAmount = 0;
 
 /*----- cached element references -----*/
 
+let spinnerTxt = document.querySelector('.spinnerText')
 let totalTxt = document.querySelector('#totalTxt');
 let valueTxt = document.querySelector('#valueTxt');
 let multiplierTxt = document.querySelector('#multiplierTxt');
@@ -28,6 +29,7 @@ let summary = document.querySelector('#summary');
 let currentAmount = document.querySelector('#currentAmountId');
 let serviceCostTxt = document.querySelector('#serviceCostId')
 let cashoutAmountTxt = document.querySelector('#cashoutAmountId')
+let loader = document.querySelector('.loader'); // Change if needed
 
 
 /*----- functions -----*/
@@ -50,19 +52,38 @@ function userInput() { // When the user adds in an input and click the submit bu
     return currentTotal;
 }
 
+// run animation on the function, then set timeout after 1,2,3s run the display none function
+function loaderStart() {
+    loader.style.display = 'flex';
+    valueTxt.style.display = 'none';
+    multiplierTxt.style.display = 'none';
+    winLoseTxt.style.display = 'none';
+}
 
 function valueSlotOp() {
     let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number from the array
+    setTimeout(function(){ 
+        loader.style.display = 'none';
+        valueTxt.style.display = 'flex';
+    }, 3000);
     return value;
 }
 
 function multiplierSlotOp() {
     let value = multiplierSlot[Math.floor(Math.random() * multiplierSlot.length)]; // finds a random multiplier from the array
+    setTimeout(function(){ 
+        loader.style.display = 'none';
+        multiplierTxt.style.display = 'flex';
+    }, 4000);
     return value;
 }
 
 function winLoseSlotOp() {
     let value = winLoseSlot[Math.floor(Math.random() * winLoseSlot.length)]; // randomly finds if they win or lose the money
+    setTimeout(function(){ 
+        loader.style.display = 'none';
+        winLoseTxt.style.display = 'flex';
+    }, 5000);
     return value; // But doesnt return the value, it stays as return
 }
 
@@ -91,12 +112,14 @@ function serviceCostOp() {
 }
 
 function cashoutAmountOp() {
-
     let value = currentTotal - serviceCost;
     return value;
 }
 
 function spinner() { // focused here render and init
+
+    loaderStart();
+
     selValueSlot = valueSlotOp();
     console.log('value: ' + selValueSlot);
     selMultiplierSlot = multiplierSlotOp();
