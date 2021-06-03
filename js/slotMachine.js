@@ -10,6 +10,8 @@ let currentTotal = 0;
 let selValueSlot = 0;
 let selMultiplierSlot = 0;
 let selWinLoseSlot = 'Won';
+let serviceCost = 0;
+let cashoutAmount = 0;
 
 /*----- cached element references -----*/
 
@@ -21,6 +23,12 @@ let inputValue = document.querySelector('input');
 let inputButton = document.querySelector('#inputButton')
 let spinButton = document.querySelector('#spin');
 let cashOutButton = document.querySelector('#cashOut');
+let checkSummaryButton = document.querySelector('.summaryHeader');
+let summary = document.querySelector('#summary');
+let currentAmount = document.querySelector('#currentAmountId');
+let serviceCostTxt = document.querySelector('#serviceCostId')
+let cashoutAmountTxt = document.querySelector('#cashoutAmountId')
+
 
 /*----- functions -----*/
 
@@ -28,7 +36,9 @@ function init() {
     currentTotal = 0;
     selValueSlot = 0;
     selMultiplierSlot = 0;
-    selWinLoseSlot = 'Won'; 
+    selWinLoseSlot = 'Won';
+    serviceCost = 0; 
+    cashoutAmount = 0;
     render();
 }
 
@@ -71,9 +81,20 @@ function currentTotalOp() {
     };
 }
 
+function checkSummaryOp() {
+    summary.style.display = 'block';    
+}
 
+function serviceCostOp() {
+    let value = serviceCost + 10;
+    return value;
+}
 
+function cashoutAmountOp() {
 
+    let value = currentTotal - serviceCost;
+    return value;
+}
 
 function spinner() { // focused here render and init
     selValueSlot = valueSlotOp();
@@ -85,15 +106,21 @@ function spinner() { // focused here render and init
     console.log('totalbefore: ' + currentTotal);
     currentTotal = currentTotalOp();
     console.log('total: ' + currentTotal);
+    serviceCost = serviceCostOp();
+    console.log('serviceCost: ' + serviceCost);
+    cashoutAmount = cashoutAmountOp();
+    console.log('cashoutAmount: ' + cashoutAmount);
     render();
 }
-
 
 function render() {
     totalTxt.innerText = '$' + currentTotal + '.00';
     valueTxt.innerText = '$' + selValueSlot;
     multiplierTxt.innerText = 'x' + selMultiplierSlot;
     winLoseTxt.innerText = selWinLoseSlot;
+    currentAmount.innerText = '$' + currentTotal + '.00';
+    serviceCostTxt.innerText = '$' + serviceCost + '.00';
+    cashoutAmountTxt.innerText = '$' + cashoutAmount + '.00';
 }
 
 // init is just initialising
@@ -107,6 +134,7 @@ init();
 inputButton.addEventListener('click', userInput);
 spinButton.addEventListener('click', spinner);
 cashOutButton.addEventListener('click', init);
+checkSummaryButton.addEventListener('click', checkSummaryOp);
 
 
 
