@@ -29,7 +29,7 @@ let summary = document.querySelector('#summary');
 let currentAmount = document.querySelector('#currentAmountId');
 let serviceCostTxt = document.querySelector('#serviceCostId')
 let cashoutAmountTxt = document.querySelector('#cashoutAmountId')
-let loader = document.querySelector('.loader'); // Change if needed
+let loader = document.querySelectorAll('.loader'); // Change if needed
 
 
 /*----- functions -----*/
