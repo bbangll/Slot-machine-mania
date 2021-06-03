@@ -29,7 +29,9 @@ let summary = document.querySelector('#summary');
 let currentAmount = document.querySelector('#currentAmountId');
 let serviceCostTxt = document.querySelector('#serviceCostId')
 let cashoutAmountTxt = document.querySelector('#cashoutAmountId')
-let loader = document.querySelectorAll('.loader'); // Change if needed
+let valueloader = document.querySelector('#valueLoader');
+let multiplierLoader = document.querySelector('#multiplierLoader');
+let winLoseLoader = document.querySelector('#winLoseLoader');
 
 
 /*----- functions -----*/
@@ -54,25 +56,27 @@ function userInput() { // When the user adds in an input and click the submit bu
 
 // run animation on the function, then set timeout after 1,2,3s run the display none function
 function loaderStart() {
-    loader.style.display = 'flex';
     valueTxt.style.display = 'none';
     multiplierTxt.style.display = 'none';
     winLoseTxt.style.display = 'none';
+    valueLoader.style.display = 'flex';
+    multiplierLoader.style.display = 'flex';
+    winLoseLoader.style.display = 'flex';
 }
 
 function valueSlotOp() {
     let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number from the array
     setTimeout(function(){ 
-        loader.style.display = 'none';
+        valueLoader.style.display = 'none';
         valueTxt.style.display = 'flex';
-    }, 3000);
+    }, 2000);
     return value;
 }
 
 function multiplierSlotOp() {
     let value = multiplierSlot[Math.floor(Math.random() * multiplierSlot.length)]; // finds a random multiplier from the array
     setTimeout(function(){ 
-        loader.style.display = 'none';
+        multiplierLoader.style.display = 'none';
         multiplierTxt.style.display = 'flex';
     }, 4000);
     return value;
@@ -81,9 +85,9 @@ function multiplierSlotOp() {
 function winLoseSlotOp() {
     let value = winLoseSlot[Math.floor(Math.random() * winLoseSlot.length)]; // randomly finds if they win or lose the money
     setTimeout(function(){ 
-        loader.style.display = 'none';
+        winLoseLoader.style.display = 'none';
         winLoseTxt.style.display = 'flex';
-    }, 5000);
+    }, 6000);
     return value; // But doesnt return the value, it stays as return
 }
 
@@ -92,12 +96,10 @@ function currentTotalOp() {
     if (selWinLoseSlot === 'Won') {
         console.log(selValueSlot, selMultiplierSlot, selWinLoseSlot, currentTotal);
         let value = (selValueSlot * selMultiplierSlot) + currentTotal; // Checking if it's adding and multiplying the correct amount
-        
         return value;
     } else if (selWinLoseSlot === 'Lost') {
         console.log(selValueSlot, selMultiplierSlot, selWinLoseSlot, currentTotal);
         let value = currentTotal - (selValueSlot * selMultiplierSlot); // Checking if it's adding and multiplying the correct amount
-        
         return value;
     };
 }

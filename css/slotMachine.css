@@ -45,7 +45,7 @@ header {
     margin: 10px 0 0 0;
     padding: 0;
     line-height: 1;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #displayValue {
@@ -102,7 +102,7 @@ input {
 }
 
 #inputButton {
-    background: #A0DE83;
+    background: #E1AE4B;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -216,7 +216,7 @@ img {
     display: none;
     border: 5px solid white;
     border-radius: 50%;
-    border-top: 5px solid #A0DE83;
+    border-top: 5px solid #E1AE4B;
     width: 20px;
     height: 20px;
     -webkit-animation: spin 1s ease-in-out infinite; /* Safari */
