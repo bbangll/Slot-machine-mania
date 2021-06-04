@@ -1,9 +1,10 @@
 
 
 # Slot Machine Mania
-### Nothing But Luck
 
 ---
+
+### General info & Rules
 
 Welcome to my Slot Machine Mania project! It's a game where with a click of button can make you filthy rich or send you straight down the food chain. Roll up your sleeves and take your chances:
 
@@ -15,10 +16,10 @@ There are three slots.
 - Second slot: Randomly generates a multiplier of that earning, ranging from 1x-10x.
 - Third slot: Random chooses whether you win or lose.
 
-Your total would be your total sum. Keep in mind that with each spin, there's a service cost of $10.00.
+Your total would be your total sum. Keep in mind that with each spin, there's a service cost of $10.00. The 'Check Summary' button would give you more information.
 
 Good Luck!!
 
-<img src="assets/Porche2019.jpeg" width="450" height="350">
+<img src="assets/Porche2019.jpeg" width="100%" height="auto">
 
 
