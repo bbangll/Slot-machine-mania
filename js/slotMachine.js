@@ -1,17 +1,17 @@
 
 /*----- constants -----*/
-const valueSlot = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; 
+const valueSlot = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]; 
 const multiplierSlot = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // How much the value gets multiplied by
 const winLoseSlot = ['Won', 'Lost']; // Whether the money gets added on or subtracted from the current total
 
 /*----- app's state (variables) -----*/
 
-let currentTotal = 0;
-let selValueSlot = 0;
-let selMultiplierSlot = 0;
-let selWinLoseSlot = 'Won';
-let serviceCost = 0;
-let cashoutAmount = 0;
+let currentTotal;
+let selValueSlot;
+let selMultiplierSlot;
+let selWinLoseSlot;
+let serviceCost;
+let cashoutAmount;
 
 /*----- cached element references -----*/
 
@@ -48,7 +48,7 @@ function init() {
     render();
 }
 
-function userInput() { // When the user adds in an input and click the submit button, this function should update the value of currentValue
+function userInput() { // Grabs the user input and updates the currentTotal
     let total = inputValue.value;
     total = parseInt(total);
     currentTotal = total + currentTotal
@@ -56,8 +56,8 @@ function userInput() { // When the user adds in an input and click the submit bu
     return currentTotal;
 }
 
-// run animation on the function, then set timeout after 1,2,3s run the display none function
-function loaderStart() {
+
+function loaderStart() { // Creates the initial display for the spinner class as the user clicks on spion
     valueTxt.style.display = 'none';
     multiplierTxt.style.display = 'none';
     winLoseTxt.style.display = 'none';
@@ -67,8 +67,8 @@ function loaderStart() {
 }
 
 function valueSlotOp() {
-    let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number from the array
-    setTimeout(function(){ 
+    let value = valueSlot[Math.floor(Math.random() * valueSlot.length)]; // finds a random number for the valueSlot
+    setTimeout(function(){ // Display the animation for 2s before displaying the text
         valueLoader.style.display = 'none';
         valueTxt.style.display = 'flex';
     }, 2000);
@@ -76,7 +76,7 @@ function valueSlotOp() {
 }
 
 function multiplierSlotOp() {
-    let value = multiplierSlot[Math.floor(Math.random() * multiplierSlot.length)]; // finds a random multiplier from the array
+    let value = multiplierSlot[Math.floor(Math.random() * multiplierSlot.length)]; // finds a random multiplier for the multiplieSlot
     setTimeout(function(){ 
         multiplierLoader.style.display = 'none';
         multiplierTxt.style.display = 'flex';
@@ -85,70 +85,39 @@ function multiplierSlotOp() {
 }
 
 function winLoseSlotOp() {
-    let value = winLoseSlot[Math.floor(Math.random() * winLoseSlot.length)]; // randomly finds if they win or lose the money
+    let value = winLoseSlot[Math.floor(Math.random() * winLoseSlot.length)]; // randomly finds if they win or lose for winLoseSlot
     setTimeout(function(){ 
         winLoseLoader.style.display = 'none';
         winLoseTxt.style.display = 'flex';
     }, 6000);
-    return value; // But doesnt return the value, it stays as return
+    return value; 
 }
 
 
-function currentTotalOp() {
+function currentTotalOp() { // Calculates the total operation of all the slots
     if (selWinLoseSlot === 'Won') {
-        console.log(selValueSlot, selMultiplierSlot, selWinLoseSlot, currentTotal);
-        let value = (selValueSlot * selMultiplierSlot) + currentTotal; // Checking if it's adding and multiplying the correct amount
+        let value = (selValueSlot * selMultiplierSlot) + currentTotal; // If user 'won' then add to the currentTotal
         return value;
     } else if (selWinLoseSlot === 'Lost') {
-        console.log(selValueSlot, selMultiplierSlot, selWinLoseSlot, currentTotal);
-        let value = currentTotal - (selValueSlot * selMultiplierSlot); // Checking if it's adding and multiplying the correct amount
+        let value = currentTotal - (selValueSlot * selMultiplierSlot); // if user 'lost' then minus from the current Total
         return value;
     };
 }
 
-function checkSummaryOp() {
-    summary.style.display = 'block'; 
-    closeButton.style.display = 'flex';   
-    openerClass.style.justifyContent = "space-between";
-}
-
-function serviceCostOp() {
-    let value = serviceCost + 10;
-    return value;
-}
-
-function cashoutAmountOp() {
-    let value = currentTotal - serviceCost;
-    return value;
-}
-
-function closeButtonOp() {
-    closeButton.style.display = 'none';
-    openerClass.style.justifyContent = "center";
-    summary.style.display = 'none';
-}
-
-function spinner() { // focused here render and init
+function spinner() { // runs all the slot functions as the user clicks on spin
 
     loaderStart();
 
     selValueSlot = valueSlotOp();
-    console.log('value: ' + selValueSlot);
     selMultiplierSlot = multiplierSlotOp();
-    console.log('multiplier: ' + selMultiplierSlot);
     selWinLoseSlot = winLoseSlotOp();
-    console.log('winLose: ' + selWinLoseSlot);
-    console.log('totalbefore: ' + currentTotal);
     currentTotal = currentTotalOp();
-    console.log('total: ' + currentTotal);
     serviceCost = serviceCostOp();
-    console.log('serviceCost: ' + serviceCost);
     cashoutAmount = cashoutAmountOp();
-    console.log('cashoutAmount: ' + cashoutAmount);
     render();
 }
 
-function render() {
+function render() { // Re-rendering all the dom-elements that needs up to be updated
     totalTxt.innerText = '$' + currentTotal + '.00';
     valueTxt.innerText = '$' + selValueSlot;
     multiplierTxt.innerText = 'x' + selMultiplierSlot;
@@ -158,14 +127,33 @@ function render() {
     cashoutAmountTxt.innerText = '$' + cashoutAmount + '.00';
 }
 
-// init is just initialising
-// render is just doing the logic and displaying what needs to changed
+function checkSummaryOp() { // Elements thats need to shown as the user clicks on checkSummary
+    summary.style.display = 'block'; 
+    closeButton.style.display = 'flex';   
+    openerClass.style.justifyContent = "space-between";
+}
+
+function serviceCostOp() { // Calculates the service cost for clicking the spinning function
+    let value = serviceCost + 10;
+    return value;
+}
+
+function cashoutAmountOp() { // Calculates how much the user would get or owe for the service
+    let value = currentTotal - serviceCost;
+    return value;
+}
+
+function closeButtonOp() { // Elements that needs to be displayed as the user clicks on the close button
+    closeButton.style.display = 'none';
+    openerClass.style.justifyContent = "center";
+    summary.style.display = 'none';
+}
+
 
 /*----- event listeners -----*/
 
 
 init();
-
 inputButton.addEventListener('click', userInput);
 spinButton.addEventListener('click', spinner);
 cashOutButton.addEventListener('click', init);
