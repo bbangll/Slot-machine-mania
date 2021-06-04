@@ -1,4 +1,7 @@
 
+<img src="https://media.giphy.com/media/NP44UBi9o3QDh4lEK1/source.gif" width="100%" height="auto">
+<img src="https://media.giphy.com/media/1J7408UBk677YTS3g3/source.gif" width="100%" height="auto">
+
 
 # Slot Machine Mania
 
