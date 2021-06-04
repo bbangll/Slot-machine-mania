@@ -18,7 +18,7 @@ JavaScript, HTML, CSS, SVG
 ## Getting Started
 
 Instructions:
-1. Click here to open the game - [title](https://bbangll.github.io/Slot-machine-mania/)
+1. Click here to open the game - [Slot Machine Mania](https://bbangll.github.io/Slot-machine-mania/)
 2. Add how much you want to bet
 3. Click on the spin button to start the slot machine.
 
