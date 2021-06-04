@@ -32,7 +32,7 @@ Your total would be your total sum. Keep in mind that with each spin, there's a 
 
 <img src="assets/Porche2019.jpeg" width="100%" height="auto">
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://giphy.com/gifs/NP44UBi9o3QDh4lEK1)
 
 
 
