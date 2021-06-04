@@ -5,4 +5,6 @@
 
 Welcome to my Slot Machine Mania project! It's a game where with a click 
 
-![Just shit Talking](Porche2019.jpeg)
+<img src=“assets/Porche2019.jpeg” width=“450" height=“350”>
+
+
