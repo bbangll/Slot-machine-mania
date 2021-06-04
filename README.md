@@ -18,8 +18,9 @@ JavaScript, HTML, CSS, SVG
 ## Getting Started
 
 Instructions:
-1. Add how much you want to bet
-2. Click on the spin button to start the slot machine.
+1. Click here to open the game - [title](https://bbangll.github.io/Slot-machine-mania/)
+2. Add how much you want to bet
+3. Click on the spin button to start the slot machine.
 
 There are three slots. 
 - First slot: Randomly generates a potential earning, ranging from $2-$20.
