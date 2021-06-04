@@ -24,13 +24,13 @@ Instructions:
 There are three slots. 
 - First slot: Randomly generates a potential earning, ranging from $2-$20.
 - Second slot: Randomly generates a multiplier of that earning, ranging from 1x-10x.
-- Third slot: Random chooses whether you win or lose.
+- Third slot: Random chooses whether you win or lose those earnings.
 
 Your total would be your total sum. Keep in mind that with each spin, there's a service cost of $10.00. The 'Check Summary' button would give you more information.
 
 ## Next Steps
-- I want to add a setTimeout on the total, so that users wont see whether they gained money or loss money before the slots finished loading.
-- I want to add an extremely faded lottie animation for the background.
+- I want to add a setTimeout on the total, so that users wont see whether they gained money or lose money before the slots finish loading.
+- I want to add an extremely faded lottie animation for the background, to give it subtle spice to it.
 
 
 
