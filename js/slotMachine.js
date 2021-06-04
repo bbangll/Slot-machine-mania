@@ -32,6 +32,8 @@ let cashoutAmountTxt = document.querySelector('#cashoutAmountId')
 let valueloader = document.querySelector('#valueLoader');
 let multiplierLoader = document.querySelector('#multiplierLoader');
 let winLoseLoader = document.querySelector('#winLoseLoader');
+let closeButton = document.querySelector('#closeButton');
+let openerClass = document.querySelector('.opener');
 
 
 /*----- functions -----*/
@@ -105,7 +107,9 @@ function currentTotalOp() {
 }
 
 function checkSummaryOp() {
-    summary.style.display = 'block';    
+    summary.style.display = 'block'; 
+    closeButton.style.display = 'flex';   
+    openerClass.style.justifyContent = "space-between";
 }
 
 function serviceCostOp() {
@@ -116,6 +120,12 @@ function serviceCostOp() {
 function cashoutAmountOp() {
     let value = currentTotal - serviceCost;
     return value;
+}
+
+function closeButtonOp() {
+    closeButton.style.display = 'none';
+    openerClass.style.justifyContent = "center";
+    summary.style.display = 'none';
 }
 
 function spinner() { // focused here render and init
@@ -160,6 +170,7 @@ inputButton.addEventListener('click', userInput);
 spinButton.addEventListener('click', spinner);
 cashOutButton.addEventListener('click', init);
 checkSummaryButton.addEventListener('click', checkSummaryOp);
+closeButton.addEventListener('click', closeButtonOp);
 
 
 

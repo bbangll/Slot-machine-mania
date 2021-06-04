@@ -112,6 +112,13 @@ input {
     cursor: pointer;
     margin-left: 10px;
     border-radius: 8px;
+    transition: 0.3s;
+    opacity: 0.6;
+}
+
+#inputButton:hover {
+    transform: translate(5px, 0);
+    opacity: 1;
 }
 
 img {
@@ -161,6 +168,12 @@ img {
 #spin {
     background: #333F5F;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+#spin:hover {
+    background: #E1AE4B;
+    transform: translate(5px, 0);
 }
 
 #cashOut {
@@ -175,6 +188,14 @@ img {
     cursor: pointer;
     margin: 50px 0 0 0;
     font-weight: 800;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+#cashOut:hover {
+    background: #E1AE4B;
+    opacity: 1;
+    transform: translate(0, -5px);
 }
 
 .summaryHeader {
@@ -233,6 +254,19 @@ img {
     100% { transform: rotate(360deg); }
   }
 
+  .opener {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+  }
+
+  #closeButton {
+      height: 25px;
+      width: auto;
+      cursor: pointer;
+      display: none;
+  }
 
 
 
